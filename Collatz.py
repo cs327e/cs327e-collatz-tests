@@ -52,10 +52,10 @@ def collatz_eval (i, j) :
             if x % 2 == 0 : 
                 x = x/2
               
-##                if x <= j :
-##                    if cl[x-1] != 0 :
-##                        cycle = cycle + cl[x-1] - 1
-##                        x = 1
+                if x <= j :
+                    if cl[x-1] != 0 :
+                        cycle = cycle + cl[x-1] - 1
+                        x = 1
                         
                 cycle += 1                        
  
