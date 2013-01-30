@@ -76,20 +76,25 @@ class TestCollatz (unittest.TestCase) :
     # ----
 
     def test_eval_1 (self) :
-        v = collatz_eval(1, 10)
+        v = collatz_eval(1, 10, {1:1}, [1])
         self.assert_(v == 20)
 
     def test_eval_2 (self) :
-        v = collatz_eval(100, 200)
+        v = collatz_eval(100, 200, {1:1}, [1])
         self.assert_(v == 125)
 
     def test_eval_3 (self) :
-        v = collatz_eval(201, 210)
+        v = collatz_eval(201, 210, {1:1}, [1])
         self.assert_(v == 89)
 
     def test_eval_4 (self) :
-        v = collatz_eval(900, 1000)
+        v = collatz_eval(900, 1000, {1:1}, [1])
         self.assert_(v == 174)
+
+    def test_eval_5 (self) :
+	v = collatz_eval(5, 10, {1:1, 2:2, 3:8, 4:3, 5:6}, [5])
+	self.assert_(v == 20)
+
 
     # -----
     # print
@@ -138,9 +143,10 @@ class TestCollatz (unittest.TestCase) :
 
 
 print "TestCollatz.py"
-logFile='TestCollatz.py.out'
-fid=open(logFile, "w")
-r=unittest.TextTestRunner(fid)
-unittest.main(testRunner=r)
-fid.close()
+#logFile='TestCollatz.py.out'
+#fid=open(logFile, "w")
+#r=unittest.TextTestRunner(fid)
+#unittest.main(testRunner=r)
+#fid.close()
+unittest.main()
 print "Done."
