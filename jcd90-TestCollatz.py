@@ -124,19 +124,7 @@ class TestCollatz (unittest.TestCase) :
     # solve
     # -----
 
-    def test_solve_1 (self) :
-        r = StringIO.StringIO("1 10\n100 200\n201 210\n900 1000\n")
-        w = StringIO.StringIO()
-        collatz_solve(r, w)
-        self.assert_(w.getvalue() == "1 10 20\n100 200 125\n201 210 89\n900 1000 174\n")
-
-    def test_solve_2 (self) :
-        r = StringIO.StringIO("1 10\n100 200\n201 210\n900 1000\n")
-        w = StringIO.StringIO()
-        collatz_solve(r, w)
-        self.assert_(w.getvalue() == "1 10 20\n100 200 125\n201 210 89\n900 1000 174\n")
-
-    def test_solve_3 (self) :
+    def test_solve (self) :
         r = StringIO.StringIO("1 10\n100 200\n201 210\n900 1000\n")
         w = StringIO.StringIO()
         collatz_solve(r, w)
