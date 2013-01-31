@@ -20,7 +20,7 @@ To test the program:
 import StringIO
 import unittest
 
-from Collatz import collatz_read, collatz_eval, collatz_print, collatz_solve
+from Collatz import collatz_read, collatz_eval, collatz_print, collatz_solve, collatz_checkMeta
 
 # -----------
 # TestCollatz
@@ -94,6 +94,75 @@ class TestCollatz (unittest.TestCase) :
     def test_eval_7 (self) :
         v = collatz_eval(900000, 1000000)
         self.assert_(v == 507)
+
+    # -----
+    # checkMeta
+    # -----
+
+    def test_checkMeta_1 (self) :
+        a = [1, 125]
+        b = [1, 1]
+        c = [1, 1]
+        v = collatz_checkMeta(a,b,c)
+        self.assert_(a[0] == 1)
+        self.assert_(a[1] == 125)
+        self.assert_(b[0] == 1)
+        self.assert_(b[1] == 1)
+        self.assert_(c[0] == 1)
+        self.assert_(c[1] == 1)
+        self.assert_(v == 119)
+        
+    def test_checkMeta_2 (self) :
+        a = [1, 126]
+        b = [1, 1]
+        c = [1, 1]
+        v = collatz_checkMeta(a,b,c)
+        self.assert_(a[0] == 1)
+        self.assert_(a[1] == 126)
+        self.assert_(b[0] == 1)
+        self.assert_(b[1] == 1)
+        self.assert_(c[0] == 126)
+        self.assert_(c[1] == 126)
+        self.assert_(v == 119)
+
+    def test_checkMeta_3 (self) :
+        a = [125, 250]
+        b = [1, 1]
+        c = [1, 1]
+        v = collatz_checkMeta(a,b,c)
+        self.assert_(a[0] == 125)
+        self.assert_(a[1] == 250)
+        self.assert_(b[0] == 125)
+        self.assert_(b[1] == 125)
+        self.assert_(c[0] == 1)
+        self.assert_(c[1] == 1)
+        self.assert_(v == 128)
+        
+    def test_checkMeta_4 (self) :
+        a = [1, 250]
+        b = [1, 1]
+        c = [1, 1]
+        v = collatz_checkMeta(a,b,c)
+        self.assert_(a[0] == 1)
+        self.assert_(a[1] == 250)
+        self.assert_(b[0] == 1)
+        self.assert_(b[1] == 1)
+        self.assert_(c[0] == 1)
+        self.assert_(c[1] == 1)
+        self.assert_(v == 128)
+
+    def test_checkMeta_5 (self) :
+        a = [120, 380]
+        b = [1, 1]
+        c = [1, 1]
+        v = collatz_checkMeta(a,b,c)
+        self.assert_(a[0] == 120)
+        self.assert_(a[1] == 380)
+        self.assert_(b[0] == 120)
+        self.assert_(b[1] == 125)
+        self.assert_(c[0] == 376)
+        self.assert_(c[1] == 380)
+        self.assert_(v == 144)
 
     # -----
     # print
